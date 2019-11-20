@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {
-                "info.app.name=Cognizant Tracker Test",
+                "info.app.name=Spring Actuator Test",
                 "info.app.description=This is for testing.",
                 "info.app.version=0.0.1",
                 "spring.security.user.name=user",
@@ -54,7 +54,7 @@ public class SecureActuatorApplicationTests {
 
         assertThat(response.getStatus()).isEqualTo(200);
         DocumentContext createJson = parse(response.getBody());
-        assertThat(createJson.read("$.app.name", String.class)).isEqualTo("Cognizant Tracker Test");
+        assertThat(createJson.read("$.app.name", String.class)).isEqualTo("Spring Actuator Test");
         assertThat(createJson.read("$.app.description", String.class))
                 .isEqualTo("This is for testing.");
         assertThat(createJson.read("$.app.version", String.class)).isEqualTo("0.0.1");
